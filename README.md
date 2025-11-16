@@ -63,3 +63,18 @@ Git & GitHub
 Postman (API testing)
 
 Cloudinary / Firebase (if used for video or image upload)
+
+/my-edtech-app
+  ├── public
+  ├── src
+  │   ├── components
+  │   ├── pages
+  │   ├── utils
+  │   
+/server
+  ├── controllers
+  ├── models
+  ├── routes
+  ├── config
+  └── index.js
+
