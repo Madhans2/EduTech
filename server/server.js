@@ -13,29 +13,27 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://edu-tech-tan.vercel.app"
 ];
-/*
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
-*/
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
 
-// Handle preflight for ALL routes
-app.options("*", cors());
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests like Postman that have no origin
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // important for cookies
+}));
+
+// Handle preflight requests for all routes
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
 app.use(express.json());
 app.use(cookieParser());
