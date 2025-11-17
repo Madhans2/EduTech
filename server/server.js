@@ -14,11 +14,14 @@ const allowedOrigins = [
   "https://edu-tech-tan.vercel.app"
 ];
 
-// Middleware
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 app.use(
-   cors({
+  cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (like Postman)
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
@@ -26,10 +29,12 @@ app.use(
         return callback(new Error("Not allowed by CORS"));
       }
     },
-     credentials: true,
-     }));
+    credentials: true,
+  })
+);
 
-     app.options("*", cors());
+// Handle preflight for ALL routes
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
