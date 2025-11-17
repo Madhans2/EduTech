@@ -33,15 +33,3 @@ router.post('/progress', protect, markLessonComplete);
 
 export default router;
 
-/*
-router.post(
-  '/',
-  protect,
-  instructor,
-  upload.fields([
-    { name: 'thumbnail', maxCount: 1 },
-    { name: 'video', maxCount: 1 },
-  ]),
-  createCourse
-);
-*/

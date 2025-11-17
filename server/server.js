@@ -13,11 +13,12 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://edu-tech-tan.vercel.app"
 ];
-
+/*
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
+*/
 
 app.use(
   cors({
