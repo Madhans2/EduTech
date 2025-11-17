@@ -27,7 +27,7 @@ export default function AddLesson() {
     formData.append('video', video);
 
     try {
-      await axios.post(`/api/courses/${courseId}/lessons`, formData, {
+      await axios.post(`https://edutech-irck.onrender.com/api/courses/${courseId}/lessons`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true
       });

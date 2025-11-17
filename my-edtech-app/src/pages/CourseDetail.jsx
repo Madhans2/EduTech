@@ -20,7 +20,7 @@ export default function CourseDetail() {
 
     const loadCourse = async () => {
       try {
-        const res = await axios.get(`/api/courses/${id}`, {
+        const res = await axios.get(`https://edutech-irck.onrender.com/api/courses/${id}`, {
           withCredentials: true,
         });
 
