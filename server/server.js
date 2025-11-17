@@ -14,25 +14,26 @@ const allowedOrigins = [
   "https://edu-tech-tan.vercel.app"
 ];
 
-
 app.use(cors({
   origin: function(origin, callback) {
-    // Allow requests like Postman that have no origin
+    // allow requests like Postman that have no origin
     if (!origin) return callback(null, true);
-
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
     }
+    callback(new Error('Not allowed by CORS'));
   },
   credentials: true, // important for cookies
 }));
 
-// Handle preflight requests for all routes
-app.options("*", cors({
-  origin: allowedOrigins,
-  credentials: true,
+// Handle preflight requests
+app.options('*', cors({
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
 }));
 
 app.use(express.json());
