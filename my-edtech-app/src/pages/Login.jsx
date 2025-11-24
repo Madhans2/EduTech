@@ -12,7 +12,7 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post("https://edutech-irck.onrender.com/api/users/login", data);
+      const res = await axios.post("https://edutech-jmi4.onrender.com/api/users/login", data);
       dispatch(setUser(res.data));
       navigate("/");
     } catch (err) {

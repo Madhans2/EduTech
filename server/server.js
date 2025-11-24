@@ -9,31 +9,20 @@ import courseRoutes from './routes/courseRoutes.js';
 dotenv.config();
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://edu-tech-tan.vercel.app"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    return callback(new Error("Not allowed by CORS"));
-  },
-  credentials: true
+  origin: [
+    "http://localhost:5173",
+    "https://edu-tech-tan.vercel.app"
+  ],
+  credentials: true,
 }));
-
-// ❌ REMOVE ALL app.options("*") HANDLERS
-// CORS automatically handles preflight!!!
 
 app.use(express.json());
 app.use(cookieParser());
 
-// Routes
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
 
-// MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));

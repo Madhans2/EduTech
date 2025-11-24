@@ -10,7 +10,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await axios.get('/api/users/logout');
+    await axios.get('/https://edutech-jmi4.onrender.com/api/users/logout');
     dispatch(logout());
     navigate('/login');
   };

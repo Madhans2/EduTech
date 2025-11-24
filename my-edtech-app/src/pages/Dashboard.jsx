@@ -21,7 +21,7 @@ export default function Dashboard() {
         setError('');
 
         // Fetch the logged-in user to get enrolled courses and progress
-        const userRes = await axios.get('https://edutech-irck.onrender.com/api/users/me', { withCredentials: true });
+        const userRes = await axios.get('https://edutech-jmi4.onrender.com/api/users/me', { withCredentials: true });
         const enrolledIds = userRes.data.enrolledCourses || [];
 
         if (enrolledIds.length === 0) {
@@ -33,7 +33,7 @@ export default function Dashboard() {
         // Fetch course details for each enrolled course
         const coursePromises = enrolledIds.map(async (courseId) => {
           try {
-            const courseRes = await axios.get(`https://edutech-irck.onrender.com/api/courses/${courseId}`, { withCredentials: true });
+            const courseRes = await axios.get(`https://edutech-jmi4.onrender.com/api/courses/${courseId}`, { withCredentials: true });
             const course = courseRes.data.course;
             if (!course) return null;
 

@@ -20,7 +20,7 @@ export default function CourseDetail() {
 
     const loadCourse = async () => {
       try {
-        const res = await axios.get(`https://edutech-irck.onrender.com/api/courses/${id}`, {
+        const res = await axios.get(`https://edutech-jmi4.onrender.com/api/courses/${id}`, {
           withCredentials: true,
         });
 
@@ -58,7 +58,7 @@ export default function CourseDetail() {
   const enroll = async () => {
     try {
       await axios.post(
-        `/api/courses/${id}/enroll`,
+        `https://edutech-jmi4.onrender.com/api/courses/${id}/enroll`,
         {},
         { withCredentials: true }
       );
@@ -73,7 +73,7 @@ export default function CourseDetail() {
 
     try {
       await axios.post(
-        "/api/courses/progress",
+        "https://edutech-jmi4.onrender.com/api/courses/progress",
         { courseId: id, lessonId },
         { withCredentials: true }
       );

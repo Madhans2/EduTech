@@ -41,7 +41,7 @@ export default function CreateCourse() {
     formData.append('thumbnail', file);
 
     try {
-      await axios.post('https://edutech-irck.onrender.com/api/courses', formData, {
+      await axios.post('https://edutech-jmi4.onrender.com/api/courses', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

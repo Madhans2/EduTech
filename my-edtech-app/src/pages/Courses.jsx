@@ -15,7 +15,7 @@ export default function Courses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get('https://edutech-irck.onrender.com/api/courses', {
+        const res = await axios.get('https://edutech-jmi4.onrender.com/api/courses', {
           params: { search, category: category === 'All' ? '' : category }
         });
         setCourses(res.data);
@@ -30,7 +30,7 @@ export default function Courses() {
 
   const enroll = async (courseId) => {
     try {
-      await axios.post(`https://edutech-irck.onrender.com/api/courses/${courseId}/enroll`, {}, { withCredentials: true });
+      await axios.post(`https://edutech-jmi4.onrender.com/api/courses/${courseId}/enroll`, {}, { withCredentials: true });
       alert('Enrolled successfully!');
       window.location.reload();
     } catch (err) {

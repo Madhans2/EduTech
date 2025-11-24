@@ -12,7 +12,7 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post("https://edutech-irck.onrender.com/api/users/register", data, {
+      const res = await axios.post("https://edutech-jmi4.onrender.com/api/users/register", data, {
         withCredentials: true,
       });
       dispatch(setUser(res.data));

@@ -9,7 +9,7 @@ export const useAuth = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get('/api/users/me', { withCredentials: true });
+        const res = await axios.get('https://edutech-jmi4.onrender.com/api/users/me', { withCredentials: true });
         dispatch(setUser(res.data));
       } catch (err) {
         dispatch(logout());
