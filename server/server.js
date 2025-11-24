@@ -23,8 +23,8 @@ app.use(cors({
   credentials: true
 }));
 
-// Optional: allow preflight requests
-app.options("/*", cors());
+// ❌ REMOVE ALL app.options("*") HANDLERS
+// CORS automatically handles preflight!!!
 
 app.use(express.json());
 app.use(cookieParser());
